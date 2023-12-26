@@ -1,4 +1,4 @@
-﻿using Atech.Model;
+﻿using Atech.ObjectModel;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

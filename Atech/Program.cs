@@ -13,6 +13,16 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Con")));
 builder.Services.AddTransient<IAccountUser, AccountServices>();
 
+
+//var path = Directory.GetCurrentDirectory();
+//LoggerFactory.Create($"{path}\\Logs\\Log.txt");
+
+
+
+
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

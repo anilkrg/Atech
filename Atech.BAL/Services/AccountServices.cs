@@ -1,7 +1,9 @@
 ﻿using Atech.BAL.Interface;
 using Atech.DAL;
-using Atech.Model;
-using Atech.Model.ViewModel;
+using Atech.ObjectModel;
+using Atech.ObjectModel.ViewModel;
+using Atech.Utility;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,19 +20,69 @@ namespace Atech.BAL.Services
 				_dbContext = context;
         }
 
-        public Task<Tbl_User> GetEmailbyID(string Email)
+        public async Task<Tbl_User> GetEmailbyID(string Id)
 		{
-			throw new NotImplementedException();
-		}
 
-		public Task<Tbl_User> SignIn(SignInModel signInModel)
-		{
-			throw new NotImplementedException();
-		}
+            throw new NotImplementedException();
+            //var res = await _dbContext.tbl_Users.SingleOrDefaultAsync(Id);
+            //if (res != null)
+            //{
+            //	return res;	
+            //}
+            //else
+            //{
+            //	return null;
+            //}
+        }
 
-		public Task<Tbl_User> SignUp(SignUpModel signUpModel)
+		public async Task<Tbl_User> SignIn(SignInModel signInModel)
 		{
-			throw new NotImplementedException();
-		}
+            try
+            {
+
+
+                var res = await _dbContext.tbl_Users.SingleOrDefaultAsync(e => e.Email == signInModel.Email && e.Password == signInModel.Password);
+                if (res != null)
+                {
+                    return res;
+                }
+                else
+                {
+                    return null; 
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+        }
+
+		public async Task<Tbl_User> SignUp(SignUpModel signUpModel)
+		{
+            try
+            {
+                
+
+                    var newUser = new Tbl_User
+                    {
+                        Name = signUpModel.Name,
+                        Email = signUpModel.Email,
+                        Password = signUpModel.Password,
+                        Phone = signUpModel.Phone,
+                        Gender = signUpModel.Gender,
+                    };
+
+                    // Add the new user to the database
+                    _dbContext.tbl_Users.Add(newUser);
+                    await _dbContext.SaveChangesAsync();
+                return newUser;
+              
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 	}
 }

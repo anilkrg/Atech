@@ -1,5 +1,6 @@
-﻿using Atech.Model;
-using Atech.Model.ViewModel;
+﻿
+using Atech.ObjectModel;
+using Atech.ObjectModel.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

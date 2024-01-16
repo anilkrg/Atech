@@ -1,10 +1,10 @@
-﻿using Atech.BAL.Interface;
-using Atech.ObjectModel.ViewModel;
+﻿using Atech.ObjectModel.ViewModel;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Atech.Utility;
+using Atech.DAL.Interface;
 
 namespace Atech.Controllers
 {

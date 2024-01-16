@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Atech.DAL\Atech.DAL.csproj" />
     <ProjectReference Include="..\Atech.ObjectModel\Atech.ObjectModel.csproj" />
     <ProjectReference Include="..\Atech.Utility\Atech.Utility.csproj" />

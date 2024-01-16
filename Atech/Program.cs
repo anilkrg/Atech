@@ -1,6 +1,6 @@
-using Atech.BAL.Interface;
-using Atech.BAL.Services;
 using Atech.DAL;
+using Atech.DAL.Interface;
+using Atech.DAL.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 
 //Create the SQL Connection
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Con")));
-builder.Services.AddTransient<IAccountUser, AccountServices>();
+builder.Services.AddTransient<IAccountUser, AccountService>();
 
 
 //var path = Directory.GetCurrentDirectory();
